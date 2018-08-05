@@ -1,21 +1,238 @@
-{%extends 'base.html' %}
-{% block title %}Anasayfa - {{ block.super }} {% endblock %}
+{% extends 'base.html' %}
+{% block title %} Anasayfa - {{block.super}} {% endblock %}
 {% block body%}
 
 
+<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
 
+					{% for post in posts%}
 
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="{{post.get_absolute_url }}">
+									<img src="{{ post.image.url }}" class="img-fluid" alt="{{post.baslik}}">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> {{post.tarih}}</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-thumbs-up"></i> 201 Likes</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="far fa-comment"></i> 15 Comments</a>
+									</li>									<li>
+										<a href="#">
+											<i class="far fa-comment"></i> {{post.user.get_full_name}}</a>
+									</li>
 
-<div class="container">
+								</ul>
+							</div>
+						</div>
 
-    <div class="row">
+						<h3>
+							<a href="{{post.get_absolute_url }}">{{post.baslik}} </a>
+						</h3>
+						<p>{{ post.metin|safe|truncatechars:231 }}</p>
+						<a href="{{post.get_absolute_url }}" class="btn btn-primary read-m">Oku</a>
+					</div>
 
-        <div class="col-md-6 col-sm-8"> 1. sutun</div>
-        <div class="col-md-6 col-sm-4"> 2. sutun</div>
+			{% endfor%}
+				<!--//left-->
+				<!--right-->
+<div class="row">
+        <div class="col-md-9 offset-md-1">
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page={{ posts.previous_page_number }}{% if request.GET.q %{&q={{ request.GET.q}} {% endif %}">previous</a>
+                {% endif %}
 
+                <span class="current">
+                    Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}{% if request.GET.q %{&q={{ request.GET.q}} {% endif %}">next</a>
+                {% endif %}
+            </span>
+        </div>
+</div>
     </div>
 
-</div>
+
+				</div>
+
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+						<div class="tech-btm">
+							<img src="images/banner1.jpg" class="img-fluid" alt="">
+						</div>
+						<div class="tech-btm">
+							<h4>Mail servisimize abone ol!</h4>
+							<p>Gelişmelerden haberdar ol</p>
+							<form action="#" method="post">
+								<input type="email" placeholder="Email" required="">
+								<input type="submit" value="ABONE OL">
+							</form>
+
+						</div>
+						<div class="tech-btm widget_social">
+							<h4>Sosyal Medyada Takip Et</h4>
+							<ul>
+
+								<li>
+									<a class="twitter" href="#">
+										<i class="fab fa-twitter"></i>
+										<span class="count">317K</span> Twitter Followers</a>
+								</li>
+								<li>
+									<a class="facebook" href="#">
+										<i class="fab fa-facebook-f"></i>
+										<span class="count">218k</span> Twitter Followers</a>
+								</li>
+								<li>
+									<a class="dribble" href="#">
+										<i class="fab fa-dribbble"></i>
+
+										<span class="count">215k</span> Dribble Followers</a>
+								</li>
+								<li>
+									<a class="pin" href="#">
+										<i class="fab fa-pinterest"></i>
+										<span class="count">190k</span> Pinterest Followers</a>
+								</li>
+
+							</ul>
+						</div>
+						<div class="tech-btm">
+							<h4>Son Yazılar</h4>
+
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/1.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Jan, 2018</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/5.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Jan, 2018</span>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/3.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Feb, 2018</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/2.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Jan, 2018</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/4.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Jan, 2018</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="single.html">
+										<img src="images/6.jpg" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+									<h5>
+										<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i> 20 Feb, 2018</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</aside>
+				<!--//right-->
+			</div>
+		</div>
+	</section>
+
+
 
 {% endblock %}
 
