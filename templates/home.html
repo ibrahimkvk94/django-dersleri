@@ -43,9 +43,10 @@
 							<a href="{{post.get_absolute_url }}">{{post.baslik}} </a>
 						</h3>
 						<p>{{ post.metin|safe|truncatechars:231 }}</p>
+						<br>
 						<a href="{{post.get_absolute_url }}" class="btn btn-primary read-m">Oku</a>
 					</div>
-
+					<hr>
 			{% endfor%}
 				<!--//left-->
 				<!--right-->
@@ -202,7 +203,7 @@
 								</div>
 
 							</div>
-							
+
 						</div>
 					</div>
 
