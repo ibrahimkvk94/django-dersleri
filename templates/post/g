@@ -1,0 +1,2 @@
+
+sudo ln -s /etc/nginx/sites-available/django-dersleri /etc/nginx/sites-enabled
