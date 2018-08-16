@@ -19,9 +19,8 @@ DEBUG = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the 
 SECRET_KEY = '79$g*#82qs_rl%3vmdand$g6#n%u9#w6c6$(-np%p@p3a2rhu!'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ALLOWED_HOSTS = []
