@@ -12,7 +12,10 @@ class Post(models.Model):
     tarih = models.DateField(verbose_name='Tarih',auto_now_add=True)
     image = models.ImageField(null=True, blank=True)
     slug = models.SlugField(unique=True,editable=False,max_length=130)
-
+    like = models.IntegerField(verbose_name="like", default =1)
+    comment = models.IntegerField(verbose_name="like",default =1)
+    look = models.IntegerField(verbose_name="like",default =1)
+    
     def __str__(self):
         return self.baslik
 
